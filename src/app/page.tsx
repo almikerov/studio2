@@ -43,16 +43,15 @@ export default function Home() {
 
         <section id="videos" className="bg-black pb-20 md:pb-24 lg:pb-32">
           <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-4">
-           <AnimatedSection>
+           <AnimatedSection className="w-full">
               <iframe
                 src="https://player.vimeo.com/video/1134947669?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1"
-                width="1000"
-                height="562"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 title="РИЛЛС_БМВ"
-                className="aspect-video"
+                className="aspect-video w-full max-w-5xl"
+                loading="lazy"
               ></iframe>
             </AnimatedSection>
 
@@ -62,41 +61,38 @@ export default function Home() {
               </h2>
             </AnimatedSection>
             
-            <AnimatedSection>
+            <AnimatedSection className="w-full">
               <iframe
                 src="https://player.vimeo.com/video/1134948817?badge=0&autopause=0&player_id=0&app_id=58479&controls=1&autoplay=1&muted=1"
-                width="1000"
-                height="562"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 title="Презентация_формы_Арсенал"
-                className="aspect-video"
+                className="aspect-video w-full max-w-5xl"
+                loading="lazy"
               ></iframe>
             </AnimatedSection>
 
-            <AnimatedSection className="flex w-full max-w-5xl items-center justify-center gap-8">
+            <AnimatedSection className="flex w-full max-w-5xl flex-col items-center justify-center gap-8 md:flex-row">
                 <iframe
                   src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
-                  width="270"
-                  height="480"
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   title="Анастасия Арека Риллс"
-                  className="aspect-[9/16]"
+                  className="aspect-[9/16] w-full max-w-xs"
+                  loading="lazy"
                 ></iframe>
                 <iframe
                   src="https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
-                  width="270"
-                  height="480"
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   title="how are you"
-                  className="aspect-[9/16]"
+                  className="aspect-[9/16] w-full max-w-xs"
+                  loading="lazy"
                 ></iframe>
-                <div className="flex flex-col text-left">
+                <div className="flex flex-col text-center md:text-left">
                   <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
                     Рилсы
                   </h2>
@@ -112,20 +108,19 @@ export default function Home() {
               </h2>
             </AnimatedSection>
 
-            <AnimatedSection>
+            <AnimatedSection className="w-full">
               <iframe 
                 src="https://player.vimeo.com/video/1134956178?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1" 
-                width="1000" 
-                height="562" 
                 frameBorder="0" 
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" 
                 title="бекстэйдж"
-                className="aspect-video"
+                className="aspect-video w-full max-w-5xl"
+                loading="lazy"
               ></iframe>
             </AnimatedSection>
             
-            <AnimatedSection className="flex flex-col text-center pt-12">
+            <AnimatedSection className="w-full max-w-5xl text-left pt-12">
               <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
                 Контакты
               </h2>

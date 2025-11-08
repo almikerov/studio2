@@ -1,12 +1,11 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import type { Video } from '@/lib/video-data';
 import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
 import { PlayCircle } from 'lucide-react';
 
-export default function VideoCard({ video }: { video: Video }) {
+export default function VideoCard({ video, onClick }: { video: Video, onClick: () => void }) {
   return (
-    <Link href={video.url} className="group block">
+    <div className="group block cursor-pointer" onClick={onClick}>
       <Card className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:ring-2 hover:ring-primary/50">
         <CardContent className="relative aspect-[3/2] p-0">
           <Image
@@ -26,6 +25,6 @@ export default function VideoCard({ video }: { video: Video }) {
           </CardTitle>
         </CardFooter>
       </Card>
-    </Link>
+    </div>
   );
 }

@@ -1,20 +1,43 @@
-import Link from 'next/link';
-import { ArrowDown, Film, MonitorPlay } from 'lucide-react';
+'use client';
+
+import { useState } from 'react';
+import { Film, MonitorPlay } from 'lucide-react';
 import { reels, fullVideos, type Video } from '@/lib/video-data';
 import VideoCard from '@/components/video/video-card';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Dialog,
+  DialogContent,
+} from '@/components/ui/dialog';
 
-function VideoGrid({ videos, id }: { videos: Video[]; id: string }) {
+function VideoGrid({
+  videos,
+  id,
+  onVideoClick,
+}: {
+  videos: Video[];
+  id: string;
+  onVideoClick: (video: Video) => void;
+}) {
   return (
     <div id={id} className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {videos.map((video) => (
-        <VideoCard key={video.id} video={video} />
+      {videos.map(video => (
+        <VideoCard key={video.id} video={video} onClick={() => onVideoClick(video)} />
       ))}
     </div>
   );
 }
 
 export default function Home() {
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+
+  const handleVideoClick = (video: Video) => {
+    setSelectedVideo(video);
+  };
+
+  const handleCloseDialog = () => {
+    setSelectedVideo(null);
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-black">
       <main className="flex-1">
@@ -40,7 +63,7 @@ export default function Home() {
                 A collection of my recent projects, from short and snappy reels to full-length cinematic features.
               </p>
             </div>
-            
+
             <div className="space-y-16">
               <div>
                 <div className="mb-8 flex items-center justify-center gap-3">
@@ -49,9 +72,9 @@ export default function Home() {
                     Reels
                   </h3>
                 </div>
-                <VideoGrid videos={reels} id="reels" />
+                <VideoGrid videos={reels} id="reels" onVideoClick={handleVideoClick} />
               </div>
-              
+
               <div>
                 <div className="mb-8 flex items-center justify-center gap-3">
                   <Film className="h-8 w-8 text-primary" />
@@ -59,12 +82,29 @@ export default function Home() {
                     Full-Length Videos
                   </h3>
                 </div>
-                <VideoGrid videos={fullVideos} id="full-videos" />
+                <VideoGrid videos={fullVideos} id="full-videos" onVideoClick={handleVideoClick} />
               </div>
             </div>
           </div>
         </section>
       </main>
+      {selectedVideo && (
+        <Dialog open={!!selectedVideo} onOpenChange={handleCloseDialog}>
+          <DialogContent className="max-w-4xl p-0">
+             <div className="aspect-video">
+                <iframe
+                    key={selectedVideo.id}
+                    src={selectedVideo.url.replace("yandex.com/i/", "yandex.com/embed/")}
+                    width="100%"
+                    height="100%"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    className="border-0"
+                ></iframe>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 }

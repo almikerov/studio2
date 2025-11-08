@@ -20,7 +20,7 @@ export const reels: Video[] = [
     thumbnail_width: 600,
     thumbnail_height: 400,
     thumbnail_hint: imageMap.get('reel1')?.imageHint ?? 'video reel',
-    url: '#',
+    url: 'https://disk.yandex.com/i/placeholder1',
   },
   {
     id: 'reel-2',
@@ -29,7 +29,7 @@ export const reels: Video[] = [
     thumbnail_width: 600,
     thumbnail_height: 400,
     thumbnail_hint: imageMap.get('reel2')?.imageHint ?? 'video reel',
-    url: '#',
+    url: 'https://disk.yandex.com/i/placeholder2',
   },
   {
     id: 'reel-3',
@@ -38,7 +38,7 @@ export const reels: Video[] = [
     thumbnail_width: 600,
     thumbnail_height: 400,
     thumbnail_hint: imageMap.get('reel3')?.imageHint ?? 'video reel',
-    url: '#',
+    url: 'https://disk.yandex.com/i/placeholder3',
   },
 ];
 
@@ -50,7 +50,7 @@ export const fullVideos: Video[] = [
     thumbnail_width: 600,
     thumbnail_height: 400,
     thumbnail_hint: imageMap.get('full1')?.imageHint ?? 'cinematic video',
-    url: '#',
+    url: 'https://disk.yandex.com/i/placeholder4',
   },
   {
     id: 'full-2',
@@ -59,6 +59,6 @@ export const fullVideos: Video[] = [
     thumbnail_width: 600,
     thumbnail_height: 400,
     thumbnail_hint: imageMap.get('full2')?.imageHint ?? 'cinematic video',
-    url: '#',
+    url: 'https://disk.yandex.com/i/placeholder5',
   },
 ];

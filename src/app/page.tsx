@@ -114,7 +114,7 @@ export default function Home() {
 
             <AnimatedSection>
               <iframe 
-                src="https://player.vimeo.com/video/1134956178?badge=0&autopause=0&player_id=0&app_id=58479" 
+                src="https://player.vimeo.com/video/1134956178?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1" 
                 width="1000" 
                 height="562" 
                 frameBorder="0" 

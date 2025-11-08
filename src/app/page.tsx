@@ -19,7 +19,7 @@ export default function Home() {
         <section id="videos" className="bg-black pb-20 md:pb-24 lg:pb-32">
           <div className="container mx-auto flex justify-center px-4">
             <iframe
-              src="https://player.vimeo.com/video/1134947669?badge=0&autopause=0&player_id=0&app_id=58479"
+              src="https://player.vimeo.com/video/1134947669?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0"
               width="1000"
               height="562"
               frameBorder="0"

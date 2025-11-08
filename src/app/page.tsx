@@ -43,14 +43,14 @@ export default function Home() {
 
         <section id="videos" className="bg-black pb-20 md:pb-24 lg:pb-32">
           <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-4">
-           <AnimatedSection className="w-full">
+           <AnimatedSection className="w-full max-w-5xl">
               <iframe
                 src="https://player.vimeo.com/video/1134947669?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 title="РИЛЛС_БМВ"
-                className="aspect-video w-full max-w-5xl"
+                className="aspect-video w-full"
                 loading="lazy"
               ></iframe>
             </AnimatedSection>
@@ -61,19 +61,20 @@ export default function Home() {
               </h2>
             </AnimatedSection>
             
-            <AnimatedSection className="w-full">
+            <AnimatedSection className="w-full max-w-5xl">
               <iframe
                 src="https://player.vimeo.com/video/1134948817?badge=0&autopause=0&player_id=0&app_id=58479&controls=1&autoplay=1&muted=1"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 title="Презентация_формы_Арсенал"
-                className="aspect-video w-full max-w-5xl"
+                className="aspect-video w-full"
                 loading="lazy"
               ></iframe>
             </AnimatedSection>
 
             <AnimatedSection className="flex w-full max-w-5xl flex-col items-center justify-center gap-8 md:flex-row">
+              <div className="flex flex-col items-center gap-8 md:flex-row md:order-2">
                 <iframe
                   src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
                   frameBorder="0"
@@ -92,14 +93,15 @@ export default function Home() {
                   className="aspect-[9/16] w-full max-w-xs"
                   loading="lazy"
                 ></iframe>
-                <div className="flex flex-col text-center md:text-left">
-                  <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
-                    Рилсы
-                  </h2>
-                  <p className="mt-4 max-w-xs text-lg text-foreground/80">
-                    Видео для продвижения вашего бренда в социальных сетях
-                  </p>
-                </div>
+              </div>
+              <div className="flex flex-col text-center md:text-left md:order-1">
+                <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
+                  Рилсы
+                </h2>
+                <p className="mt-4 max-w-xs text-lg text-foreground/80">
+                  Видео для продвижения вашего бренда в социальных сетях
+                </p>
+              </div>
             </AnimatedSection>
 
             <AnimatedSection className="flex flex-col text-center pt-12">
@@ -108,14 +110,14 @@ export default function Home() {
               </h2>
             </AnimatedSection>
 
-            <AnimatedSection className="w-full">
+            <AnimatedSection className="w-full max-w-5xl">
               <iframe 
                 src="https://player.vimeo.com/video/1134956178?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1" 
                 frameBorder="0" 
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" 
                 title="бекстэйдж"
-                className="aspect-video w-full max-w-5xl"
+                className="aspect-video w-full"
                 loading="lazy"
               ></iframe>
             </AnimatedSection>

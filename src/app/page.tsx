@@ -28,6 +28,11 @@ export default function Home() {
               title="РИЛЛС_БМВ"
               className="aspect-video"
             ></iframe>
+            <div className="flex flex-col text-center">
+              <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
+                Видео-презентации
+              </h2>
+            </div>
             <iframe
               src="https://player.vimeo.com/video/1134948817?badge=0&autopause=0&player_id=0&app_id=58479&controls=1&autoplay=1&muted=1"
               width="1000"

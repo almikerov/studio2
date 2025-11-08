@@ -79,7 +79,7 @@ export default function Home() {
           className="container mx-auto flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center px-4 py-16 text-center"
         >
           <h1 className="font-headline text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-            Я - Марк
+            Я — Марк
           </h1>
           <p className="mx-auto mt-6 max-w-[700px] text-lg text-foreground/80 md:text-xl">
             Снимаю рекламу, видео, рилсы

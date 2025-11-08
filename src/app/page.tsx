@@ -130,7 +130,7 @@ export default function Home() {
                 Контакты
               </h2>
               <div className="mt-8 text-lg text-foreground/80 md:text-xl space-y-4">
-                <p>ТГ: @markus_media</p>
+                <p>ТГ: <a href="https://t.me/markus_media" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">@markus_media</a></p>
                 <p>Телефон: +79066264616</p>
                 <p>
                   VK: <a href="https://vk.com/markus_mediaa" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">https://vk.com/markus_mediaa</a>

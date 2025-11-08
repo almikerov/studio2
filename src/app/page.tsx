@@ -124,6 +124,19 @@ export default function Home() {
                 className="aspect-video"
               ></iframe>
             </AnimatedSection>
+            
+            <AnimatedSection className="flex flex-col text-center pt-12">
+              <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
+                Контакты
+              </h2>
+              <div className="mt-8 text-lg text-foreground/80 md:text-xl space-y-4">
+                <p>ТГ: @markus_media</p>
+                <p>Телефон: +79066264616</p>
+                <p>
+                  VK: <a href="https://vk.com/markus_mediaa" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">https://vk.com/markus_mediaa</a>
+                </p>
+              </div>
+            </AnimatedSection>
 
           </div>
         </section>

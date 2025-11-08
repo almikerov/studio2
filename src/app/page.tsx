@@ -7,14 +7,15 @@ import React from 'react';
 const AnimatedSection = ({ children, className }: { children: React.ReactNode, className?: string }) => {
   const { ref, inView } = useInView({
     threshold: 0.1,
+    triggerOnce: false,
   });
 
   return (
     <div
       ref={ref}
       className={cn(
-        "transition-all duration-1000 ease-out",
-        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16",
+        "transition-all duration-[1200ms] ease-out",
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20",
         className
       )}
     >
@@ -104,6 +105,26 @@ export default function Home() {
                   </p>
                 </div>
             </AnimatedSection>
+
+            <AnimatedSection className="flex flex-col text-center pt-12">
+              <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
+                Бэкстейджы
+              </h2>
+            </AnimatedSection>
+
+            <AnimatedSection>
+              <iframe 
+                src="https://player.vimeo.com/video/1134956178?badge=0&autopause=0&player_id=0&app_id=58479" 
+                width="1000" 
+                height="562" 
+                frameBorder="0" 
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                title="бекстэйдж"
+                className="aspect-video"
+              ></iframe>
+            </AnimatedSection>
+
           </div>
         </section>
       </main>

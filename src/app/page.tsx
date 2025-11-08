@@ -45,17 +45,9 @@ export default function Home() {
     if (url.includes('yandex.ru/d/')) {
         const parts = url.split('yandex.ru/d/');
         const publicPath = parts[1];
-        try {
-            // The path is already URI encoded, but the embed needs it to be decoded first
-            const decodedPath = decodeURIComponent(publicPath);
-            return `https://disk.yandex.ru/client/video/` + decodedPath;
-        } catch (e) {
-            console.error("Error decoding URI component: ", e);
-            // Fallback to a simpler replacement if decoding fails
-            return url.replace('yandex.ru/d/', 'yandex.ru/client/video/');
-        }
+        return `https://disk.yandex.ru/i/` + publicPath;
     }
-    // Handle older yandex.com/i/ format
+    // Handle older yandex.com/i/ format and other direct embed links
     return url.replace('yandex.com/i/', 'yandex.com/embed/');
   };
 

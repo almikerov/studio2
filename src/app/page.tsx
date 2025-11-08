@@ -42,13 +42,23 @@ export default function Home() {
   };
   
   const getEmbedUrl = (url: string) => {
-    if (url.includes('yandex.ru/d/')) {
-        const parts = url.split('yandex.ru/d/');
-        const publicPath = parts[1];
-        return `https://disk.yandex.ru/i/` + publicPath;
+    // Extracts the public key from a Yandex.Disk URL
+    try {
+      const urlObject = new URL(url);
+      const pathParts = urlObject.pathname.split('/');
+      // The public key is usually the last part of the path
+      const publicKey = pathParts[pathParts.length - 1];
+      if (publicKey) {
+        return `https://disk.yandex.ru/client/disk/public?id=${publicKey}&id-dialog=player`;
+      }
+    } catch (e) {
+      console.error('Invalid URL for video:', url, e);
     }
-    // Handle older yandex.com/i/ format and other direct embed links
-    return url.replace('yandex.com/i/', 'yandex.com/embed/');
+    // Fallback for old URLs or if parsing fails
+    if (url.includes('yandex.ru/i/')) {
+      return url.replace('yandex.ru/i/', 'yandex.ru/embed/');
+    }
+    return url;
   };
 
 

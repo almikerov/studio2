@@ -17,7 +17,7 @@ export default function Home() {
         </section>
 
         <section id="videos" className="bg-black pb-20 md:pb-24 lg:pb-32">
-          <div className="container mx-auto flex justify-center px-4">
+          <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-4">
             <iframe
               src="https://player.vimeo.com/video/1134947669?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1"
               width="1000"
@@ -26,6 +26,16 @@ export default function Home() {
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               title="РИЛЛС_БМВ"
+              className="aspect-video"
+            ></iframe>
+            <iframe
+              src="https://player.vimeo.com/video/1134948817?badge=0&autopause=0&player_id=0&app_id=58479&controls=1"
+              width="1000"
+              height="562"
+              frameBorder="0"
+              allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="Презентация_формы_Арсенал"
               className="aspect-video"
             ></iframe>
           </div>

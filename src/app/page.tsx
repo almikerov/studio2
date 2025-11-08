@@ -40,7 +40,7 @@ export default function Home() {
             ></iframe>
             <div className="flex w-full max-w-5xl items-center justify-center gap-8">
               <iframe
-                src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0"
+                src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=0&controls=1&loop=1"
                 width="270"
                 height="480"
                 frameBorder="0"
@@ -50,7 +50,7 @@ export default function Home() {
                 className="aspect-[9/16]"
               ></iframe>
               <iframe
-                src="https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0"
+                src="https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=0&controls=1&loop=1"
                 width="270"
                 height="480"
                 frameBorder="0"

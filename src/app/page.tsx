@@ -6,7 +6,6 @@ import React from 'react';
 
 const AnimatedSection = ({ children, className }: { children: React.ReactNode, className?: string }) => {
   const { ref, inView } = useInView({
-    triggerOnce: true,
     threshold: 0.1,
   });
 
@@ -14,8 +13,8 @@ const AnimatedSection = ({ children, className }: { children: React.ReactNode, c
     <div
       ref={ref}
       className={cn(
-        "transition-all duration-700 ease-out",
-        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
+        "transition-all duration-1000 ease-out",
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16",
         className
       )}
     >
@@ -77,7 +76,7 @@ export default function Home() {
 
             <AnimatedSection className="flex w-full max-w-5xl items-center justify-center gap-8">
                 <iframe
-                  src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=0&controls=1&loop=1"
+                  src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
                   width="270"
                   height="480"
                   frameBorder="0"
@@ -87,7 +86,7 @@ export default function Home() {
                   className="aspect-[9/16]"
                 ></iframe>
                 <iframe
-                  src="https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=0&controls=1&loop=1"
+                  src="https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
                   width="270"
                   height="480"
                   frameBorder="0"

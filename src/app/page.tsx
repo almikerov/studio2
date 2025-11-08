@@ -7,6 +7,9 @@ import VideoCard from '@/components/video/video-card';
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
 } from '@/components/ui/dialog';
 
 function VideoGrid({
@@ -45,11 +48,11 @@ export default function Home() {
         try {
             // The path is already URI encoded, but the embed needs it to be decoded first
             const decodedPath = decodeURIComponent(publicPath);
-            return `https://disk.yandex.ru/client/disk/` + decodedPath;
+            return `https://disk.yandex.ru/client/video/` + decodedPath;
         } catch (e) {
             console.error("Error decoding URI component: ", e);
             // Fallback to a simpler replacement if decoding fails
-            return url.replace('yandex.ru/d/', 'yandex.ru/client/disk/');
+            return url.replace('yandex.ru/d/', 'yandex.ru/client/video/');
         }
     }
     // Handle older yandex.com/i/ format
@@ -108,8 +111,12 @@ export default function Home() {
         </section>
       </main>
       {selectedVideo && (
-        <Dialog open={!!selectedVideo} onOpenChange={handleCloseDialog}>
+        <Dialog open={!!selectedVideo} onOpenChange={(isOpen) => !isOpen && handleCloseDialog()}>
           <DialogContent className="max-w-4xl p-0">
+            <DialogHeader className="sr-only">
+              <DialogTitle>Playing video: {selectedVideo.title}</DialogTitle>
+              <DialogDescription>An embedded video player for the selected video.</DialogDescription>
+            </DialogHeader>
              <div className="aspect-video">
                 <iframe
                     key={selectedVideo.id}

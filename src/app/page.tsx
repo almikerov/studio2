@@ -38,7 +38,7 @@ export default function Home() {
               title="Презентация_формы_Арсенал"
               className="aspect-video"
             ></iframe>
-            <div className="flex w-full max-w-5xl justify-center gap-4">
+            <div className="flex w-full max-w-5xl items-center justify-center gap-8">
               <iframe
                 src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479"
                 width="270"
@@ -49,26 +49,14 @@ export default function Home() {
                 title="Анастасия Арека Риллс"
                 className="aspect-[9/16]"
               ></iframe>
-              <iframe
-                src="https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479"
-                width="270"
-                height="480"
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                title="how are you"
-                className="aspect-[9/16]"
-              ></iframe>
-              <iframe
-                src="https://player.vimeo.com/video/1134950410?badge=0&autopause=0&player_id=0&app_id=58479"
-                width="270"
-                height="480"
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                title="BACKGROUND PDD"
-                className="aspect-[9/16]"
-              ></iframe>
+              <div className="flex flex-col text-left">
+                <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
+                  Рилс
+                </h2>
+                <p className="mt-4 max-w-xs text-lg text-foreground/80">
+                  Видео для продвижения вашего бренда в социальных сетях
+                </p>
+              </div>
             </div>
           </div>
         </section>

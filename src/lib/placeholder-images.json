@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "reel1",
+      "description": "A close-up shot of a camera lens reflecting light.",
+      "imageUrl": "https://images.unsplash.com/photo-1720958371916-03809cae5cc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2FtZXJhJTIwbGVuc3xlbnwwfHx8fDE3NjI2MzU1MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "camera lens"
+    },
+    {
+      "id": "reel2",
+      "description": "An aerial drone shot of a winding road through a forest.",
+      "imageUrl": "https://images.unsplash.com/photo-1614328621544-88285c9e3114?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZHJvbmUlMjBzaG90fGVufDB8fHx8MTc2MjYyMzg1OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "drone shot"
+    },
+    {
+      "id": "reel3",
+      "description": "A person editing video on a computer with editing software visible.",
+      "imageUrl": "https://images.unsplash.com/photo-1605826832916-d0ea9d6fe71e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx2aWRlbyUyMGVkaXRpbmd8ZW58MHx8fHwxNzYyNTE2MDU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "video editing"
+    },
+    {
+      "id": "full1",
+      "description": "A cinematic landscape of mountains at sunset.",
+      "imageUrl": "https://images.unsplash.com/photo-1628015893894-f7d8187f49a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjaW5lbWF0aWMlMjBsYW5kc2NhcGV8ZW58MHx8fHwxNzYyNTYxMTQ4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cinematic landscape"
+    },
+    {
+      "id": "full2",
+      "description": "A vibrant cityscape at night with light trails from traffic.",
+      "imageUrl": "https://images.unsplash.com/photo-1603266714489-d7fed395aeee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx1cmJhbiUyMG5pZ2h0bGlmZXxlbnwwfHx8fDE3NjI2MzU3ODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "urban nightlife"
+    }
+  ]
 }

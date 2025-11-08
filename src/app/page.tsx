@@ -74,7 +74,7 @@ export default function Home() {
             </AnimatedSection>
 
             <AnimatedSection className="flex w-full max-w-5xl flex-col items-center justify-center gap-8 md:flex-row">
-              <div className="flex flex-col items-center gap-8 md:flex-row md:order-2">
+              <div className="order-2 flex flex-col items-center gap-8 md:order-2 md:flex-row">
                 <iframe
                   src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
                   frameBorder="0"
@@ -94,7 +94,7 @@ export default function Home() {
                   loading="lazy"
                 ></iframe>
               </div>
-              <div className="flex flex-col text-center md:text-left md:order-1">
+              <div className="order-1 flex flex-col text-center md:order-1 md:text-left">
                 <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
                   Рилсы
                 </h2>

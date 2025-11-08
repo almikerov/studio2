@@ -120,7 +120,7 @@ export default function Home() {
               ></iframe>
             </AnimatedSection>
             
-            <AnimatedSection className="w-full max-w-5xl text-left pt-12">
+            <AnimatedSection className="w-full max-w-5xl text-center pt-12">
               <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
                 Контакты
               </h2>

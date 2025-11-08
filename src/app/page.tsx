@@ -57,7 +57,7 @@ export default function Home() {
             <div className="space-y-16">
               <div>
                 <div className="mb-8 flex items-center justify-center gap-3">
-                  <MonitorPlay className="h-8 w-8 text-accent" />
+                  <MonitorPlay className="h-8 w-8 text-primary" />
                   <h3 className="font-headline text-2xl font-semibold text-primary sm:text-3xl">
                     Reels
                   </h3>
@@ -67,7 +67,7 @@ export default function Home() {
               
               <div>
                 <div className="mb-8 flex items-center justify-center gap-3">
-                  <Film className="h-8 w-8 text-accent" />
+                  <Film className="h-8 w-8 text-primary" />
                   <h3 className="font-headline text-2xl font-semibold text-primary sm:text-3xl">
                     Full-Length Videos
                   </h3>

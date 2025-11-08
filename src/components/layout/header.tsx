@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Clapperboard, Menu, Bot } from 'lucide-react';
+import { Clapperboard, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -14,7 +14,7 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/', label: 'Portfolio' },
-  { href: '/generate-metadata', label: 'AI Metadata Generator' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -75,9 +75,8 @@ export default function Header() {
             </SheetContent>
           </Sheet>
           <Button asChild className="hidden md:flex ml-4">
-            <Link href="/generate-metadata">
-              <Bot className="mr-2 h-4 w-4" />
-              Use AI Tool
+            <Link href="#contact">
+              Contact Me
             </Link>
           </Button>
         </div>

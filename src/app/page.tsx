@@ -73,7 +73,7 @@ export default function Home() {
             Я - Марк
           </h1>
           <p className="mx-auto mt-6 max-w-[700px] text-lg text-foreground/80 md:text-xl">
-            Я видеограф, снимаю рекламу, видео, рилсы
+            Реклама, видео, рилсы
           </p>
         </section>
 

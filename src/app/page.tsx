@@ -42,21 +42,30 @@ export default function Home() {
   };
   
   const getEmbedUrl = (url: string) => {
+    if (url.includes('youtube.com/watch')) {
+      const videoId = new URL(url).searchParams.get('v');
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+    if (url.includes('drive.google.com')) {
+      // Assuming the URL is a shareable link, we need to extract the file ID and format it for embedding.
+      // e.g., https://drive.google.com/file/d/FILE_ID/view?usp=sharing -> https://drive.google.com/embed?id=FILE_ID
+      const parts = url.split('/');
+      const fileId = parts[parts.indexOf('d') + 1];
+      return `https://drive.google.com/embed?id=${fileId}`;
+    }
     // Extracts the public key from a Yandex.Disk URL
     try {
       const urlObject = new URL(url);
-      const pathParts = urlObject.pathname.split('/');
-      // The public key is usually the last part of the path
-      const publicKey = pathParts[pathParts.length - 1];
-      if (publicKey) {
-        return `https://disk.yandex.ru/client/disk/public?id=${publicKey}&id-dialog=player`;
+      if (urlObject.hostname === 'disk.yandex.ru') {
+         // For urls like https://disk.yandex.ru/i/HnN96P7IJhmUQ
+        const pathParts = urlObject.pathname.split('/');
+        const publicKey = pathParts[pathParts.length - 1];
+        if (publicKey) {
+          return `https://disk.yandex.ru/client/disk/public?id=${urlObject.pathname}&id-dialog=player`;
+        }
       }
     } catch (e) {
       console.error('Invalid URL for video:', url, e);
-    }
-    // Fallback for old URLs or if parsing fails
-    if (url.includes('yandex.ru/i/')) {
-      return url.replace('yandex.ru/i/', 'yandex.ru/embed/');
     }
     return url;
   };
@@ -73,7 +82,7 @@ export default function Home() {
             Я - Марк
           </h1>
           <p className="mx-auto mt-6 max-w-[700px] text-lg text-foreground/80 md:text-xl">
-            Реклама, видео, рилсы
+            Снимаю рекламу, видео, рилсы
           </p>
         </section>
 
@@ -115,9 +124,9 @@ export default function Home() {
       {selectedVideo && (
         <Dialog open={!!selectedVideo} onOpenChange={(isOpen) => !isOpen && handleCloseDialog()}>
           <DialogContent className="max-w-4xl p-0">
-            <DialogHeader className="sr-only">
-              <DialogTitle>Playing video: {selectedVideo.title}</DialogTitle>
-              <DialogDescription>An embedded video player for the selected video.</DialogDescription>
+            <DialogHeader>
+              <DialogTitle className="sr-only">Playing video: {selectedVideo.title}</DialogTitle>
+              <DialogDescription className="sr-only">An embedded video player for the selected video.</DialogDescription>
             </DialogHeader>
              <div className="aspect-video">
                 <iframe

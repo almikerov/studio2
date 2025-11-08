@@ -19,7 +19,7 @@ function VideoGrid({
   onVideoClick: (video: Video) => void;
 }) {
   return (
-    <div id={id} className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {videos.map(video => (
         <VideoCard key={video.id} video={video} onClick={() => onVideoClick(video)} />
       ))}
@@ -37,6 +37,25 @@ export default function Home() {
   const handleCloseDialog = () => {
     setSelectedVideo(null);
   };
+  
+  const getEmbedUrl = (url: string) => {
+    if (url.includes('yandex.ru/d/')) {
+        const parts = url.split('yandex.ru/d/');
+        const publicPath = parts[1];
+        try {
+            // The path is already URI encoded, but the embed needs it to be decoded first
+            const decodedPath = decodeURIComponent(publicPath);
+            return `https://disk.yandex.ru/client/disk/` + decodedPath;
+        } catch (e) {
+            console.error("Error decoding URI component: ", e);
+            // Fallback to a simpler replacement if decoding fails
+            return url.replace('yandex.ru/d/', 'yandex.ru/client/disk/');
+        }
+    }
+    // Handle older yandex.com/i/ format
+    return url.replace('yandex.com/i/', 'yandex.com/embed/');
+  };
+
 
   return (
     <div className="flex min-h-screen flex-col bg-black">
@@ -94,7 +113,7 @@ export default function Home() {
              <div className="aspect-video">
                 <iframe
                     key={selectedVideo.id}
-                    src={selectedVideo.url.replace("yandex.com/i/", "yandex.com/embed/")}
+                    src={getEmbedUrl(selectedVideo.url)}
                     width="100%"
                     height="100%"
                     allow="autoplay; fullscreen; picture-in-picture"

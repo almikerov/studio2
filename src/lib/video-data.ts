@@ -50,7 +50,7 @@ export const fullVideos: Video[] = [
     thumbnail_width: 600,
     thumbnail_height: 400,
     thumbnail_hint: imageMap.get('full1')?.imageHint ?? 'cinematic video',
-    url: 'https://disk.yandex.com/i/placeholder4',
+    url: 'https://disk.yandex.ru/d/7HnN96P7IJhmUQ/%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE/%D0%9F%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F_%D1%84%D0%BE%D1%80%D0%BC%D1%8B_%D0%90%D1%80%D1%81%D0%B5%D0%BD%D0%B0%D0%BB.mov',
   },
   {
     id: 'full-2',

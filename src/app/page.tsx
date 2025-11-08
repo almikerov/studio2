@@ -38,6 +38,38 @@ export default function Home() {
               title="Презентация_формы_Арсенал"
               className="aspect-video"
             ></iframe>
+            <div className="flex w-full max-w-5xl justify-center gap-4">
+              <iframe
+                src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479"
+                width="270"
+                height="480"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Анастасия Арека Риллс"
+                className="aspect-[9/16]"
+              ></iframe>
+              <iframe
+                src="https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479"
+                width="270"
+                height="480"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="how are you"
+                className="aspect-[9/16]"
+              ></iframe>
+              <iframe
+                src="https://player.vimeo.com/video/1134950410?badge=0&autopause=0&player_id=0&app_id=58479"
+                width="270"
+                height="480"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="BACKGROUND PDD"
+                className="aspect-[9/16]"
+              ></iframe>
+            </div>
           </div>
         </section>
       </main>

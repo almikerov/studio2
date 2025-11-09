@@ -2,7 +2,7 @@
 
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Progress } from '@/components/ui/progress';
 
 const AnimatedSection = ({ children, className }: { children: React.ReactNode, className?: string }) => {
@@ -26,7 +26,7 @@ const AnimatedSection = ({ children, className }: { children: React.ReactNode, c
 };
 
 const LoadingScreen = ({ progress }: { progress: number }) => (
-  <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black transition-opacity duration-500">
+  <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black">
     <div className="text-center">
       <h1 className="text-2xl font-bold text-primary mb-4">Загрузка...</h1>
       <Progress value={progress} className="w-64" />
@@ -34,34 +34,43 @@ const LoadingScreen = ({ progress }: { progress: number }) => (
   </div>
 );
 
+const videoSources = [
+  "https://player.vimeo.com/video/1134947669?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1",
+  "https://player.vimeo.com/video/1134948817?badge=0&autopause=0&player_id=0&app_id=58479&controls=1&autoplay=1&muted=1",
+  "https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1",
+  "https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1",
+  "https://player.vimeo.com/video/1134956178?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
+];
+
 export default function Home() {
-  const [progress, setProgress] = useState(0);
+  const [loadedVideos, setLoadedVideos] = useState<boolean[]>(Array(videoSources.length).fill(false));
   const [loadingComplete, setLoadingComplete] = useState(false);
 
-  useEffect(() => {
-    // This simulates a loading process. Since tracking iframe load is unreliable,
-    // we use a timer to provide a smooth loading experience.
-    const timer = setInterval(() => {
-      setProgress(prevProgress => {
-        if (prevProgress >= 100) {
-          clearInterval(timer);
-          // A short delay before hiding the loading screen
-          setTimeout(() => {
-            setLoadingComplete(true);
-          }, 500);
-          return 100;
-        }
-        return prevProgress + 20;
-      });
-    }, 400); // Adjust interval for desired speed
-
-    return () => clearInterval(timer);
+  const handleVideoLoad = useCallback((index: number) => {
+    setLoadedVideos(prev => {
+      const newLoaded = [...prev];
+      newLoaded[index] = true;
+      return newLoaded;
+    });
   }, []);
+
+  const loadedCount = loadedVideos.filter(Boolean).length;
+  const progress = (loadedCount / videoSources.length) * 100;
+
+  useEffect(() => {
+    if (loadedCount === videoSources.length) {
+      // A short delay to ensure the progress bar hits 100% visually
+      setTimeout(() => {
+        setLoadingComplete(true);
+      }, 500);
+    }
+  }, [loadedCount]);
+
 
   return (
     <>
       {!loadingComplete && <LoadingScreen progress={progress} />}
-      <div className={cn("flex min-h-screen flex-col bg-black transition-opacity duration-1000", loadingComplete ? "opacity-100" : "opacity-0")}>
+      <div className={cn("flex min-h-screen flex-col bg-black", !loadingComplete && "opacity-0 h-0 overflow-hidden")}>
         <main className="flex-1">
           <section
             id="hero"
@@ -79,12 +88,13 @@ export default function Home() {
             <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-4">
               <div className="w-full max-w-5xl">
                 <iframe
-                  src="https://player.vimeo.com/video/1134947669?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1"
+                  src={videoSources[0]}
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   title="РИЛЛС_БМВ"
                   className="aspect-video w-full"
+                  onLoad={() => handleVideoLoad(0)}
                 />
               </div>
 
@@ -96,32 +106,35 @@ export default function Home() {
               
               <div className="w-full max-w-5xl">
                 <iframe
-                  src="https://player.vimeo.com/video/1134948817?badge=0&autopause=0&player_id=0&app_id=58479&controls=1&autoplay=1&muted=1"
+                  src={videoSources[1]}
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   title="Презентация_формы_Арсенал"
                   className="aspect-video w-full"
+                  onLoad={() => handleVideoLoad(1)}
                 />
               </div>
               
               <div className="flex w-full max-w-5xl flex-col items-center justify-center gap-8 md:flex-row">
-                 <div className="order-2 flex flex-col items-center gap-8 md:order-1 md:flex-row">
+                <div className="order-2 flex flex-col items-center gap-8 md:order-1 md:flex-row">
                   <iframe
-                    src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
+                    src={videoSources[2]}
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     title="Анастасия Арека Риллс"
                     className="aspect-[9/16] w-full max-w-[300px] md:max-w-xs"
+                    onLoad={() => handleVideoLoad(2)}
                   />
                   <iframe
-                    src="https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
+                    src={videoSources[3]}
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     title="how are you"
                     className="aspect-[9/16] w-full max-w-[300px] md:max-w-xs"
+                    onLoad={() => handleVideoLoad(3)}
                   />
                 </div>
                 <AnimatedSection className="order-1 flex flex-col text-center md:order-2 md:text-left">
@@ -143,12 +156,13 @@ export default function Home() {
 
               <div className="w-full max-w-5xl">
                 <iframe 
-                  src="https://player.vimeo.com/video/1134956178?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1" 
+                  src={videoSources[4]}
                   frameBorder="0" 
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
                   referrerPolicy="strict-origin-when-cross-origin" 
                   title="бекстэйдж"
                   className="aspect-video w-full"
+                  onLoad={() => handleVideoLoad(4)}
                 />
               </div>
               

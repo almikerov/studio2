@@ -7,7 +7,7 @@ import { Progress } from '@/components/ui/progress';
 
 const AnimatedSection = ({ children, className }: { children: React.ReactNode, className?: string }) => {
   const { ref, inView } = useInView({
-    threshold: 0.2, // Increased threshold
+    threshold: 0.2,
     triggerOnce: false,
   });
 
@@ -47,7 +47,6 @@ export default function Home() {
 
   useEffect(() => {
     if (loadedVideos === totalVideos) {
-      // Delay hiding the loading screen for a smoother transition
       setTimeout(() => {
         setLoadingComplete(true);
       }, 500);

@@ -32,7 +32,7 @@ const LazyVimeo = ({ src, title, className }: { src: string; title: string; clas
 
   return (
     <div ref={ref} className={cn("aspect-video w-full", className)}>
-      {inView && (
+      {inView ? (
         <iframe
           src={src}
           frameBorder="0"
@@ -41,6 +41,8 @@ const LazyVimeo = ({ src, title, className }: { src: string; title: string; clas
           title={title}
           className="w-full h-full"
         />
+      ) : (
+        <div className="w-full h-full bg-black" />
       )}
     </div>
   );
@@ -49,7 +51,7 @@ const LazyVimeo = ({ src, title, className }: { src: string; title: string; clas
 
 const videoSources = [
   "https://player.vimeo.com/video/1134947669?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1",
-  "https://player.vimeo.com/video/1134948817?badge=0&autopause=0&player_id=0&app_id=58479&controls=1&autoplay=1&muted=1",
+  "https://player.vimeo.com/video/1134948817?badge=0&autopause=0&player_id=0&app_id=58479&controls=1&autoplay=1&muted=1&loop=1",
   "https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1",
   "https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1",
   "https://player.vimeo.com/video/1134956178?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
@@ -63,12 +65,14 @@ export default function Home() {
           id="hero"
           className="container mx-auto flex min-h-[calc(50vh-4rem)] flex-col items-center justify-center px-4 py-16 text-center"
         >
-          <h1 className="font-headline text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-            Я — Марк
-          </h1>
-          <p className="mx-auto mt-6 max-w-[700px] text-lg text-foreground/80 md:text-xl">
-            Снимаю рекламу, видео, рилсы
-          </p>
+          <AnimatedSection>
+            <h1 className="font-headline text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl">
+              Я — Марк
+            </h1>
+            <p className="mx-auto mt-6 max-w-[700px] text-lg text-foreground/80 md:text-xl">
+              Снимаю рекламу, видео, рилсы
+            </p>
+          </AnimatedSection>
         </section>
 
         <section id="videos" className="bg-black pb-20 md:pb-24 lg:pb-32">
@@ -104,7 +108,7 @@ export default function Home() {
                     Видео для продвижения вашего бренда в социальных сетях
                   </p>
               </AnimatedSection>
-              <div className="order-2 flex flex-col items-center gap-8 md:order-2 md:flex-row">
+              <div className="order-2 flex flex-col items-center gap-8 md:flex-row">
                   <LazyVimeo
                     src={videoSources[2]}
                     title="Анастасия Арека Риллс"

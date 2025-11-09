@@ -51,7 +51,7 @@ export default function Home() {
         setLoadingComplete(true);
       }, 500);
     }
-  }, [loadedVideos]);
+  }, [loadedVideos, totalVideos]);
 
 
   return (
@@ -82,7 +82,6 @@ export default function Home() {
                   title="РИЛЛС_БМВ"
                   className="aspect-video w-full"
                   onLoad={handleVideoLoad}
-                  loading="lazy"
                 ></iframe>
               </AnimatedSection>
 
@@ -101,12 +100,11 @@ export default function Home() {
                   title="Презентация_формы_Арсенал"
                   className="aspect-video w-full"
                   onLoad={handleVideoLoad}
-                  loading="lazy"
                 ></iframe>
               </AnimatedSection>
 
               <AnimatedSection className="flex w-full max-w-5xl flex-col items-center justify-center gap-8 md:flex-row">
-                 <div className="order-2 flex flex-col items-center gap-8 md:order-2 md:flex-row">
+                <div className="order-2 flex flex-col items-center gap-8 md:order-1 md:flex-row">
                   <iframe
                     src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
                     frameBorder="0"
@@ -115,7 +113,6 @@ export default function Home() {
                     title="Анастасия Арека Риллс"
                     className="aspect-[9/16] w-full max-w-xs"
                     onLoad={handleVideoLoad}
-                    loading="lazy"
                   ></iframe>
                   <iframe
                     src="https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
@@ -125,10 +122,9 @@ export default function Home() {
                     title="how are you"
                     className="aspect-[9/16] w-full max-w-xs"
                     onLoad={handleVideoLoad}
-                    loading="lazy"
                   ></iframe>
                 </div>
-                <div className="order-1 flex flex-col text-center md:order-1 md:text-left">
+                <div className="order-1 flex flex-col text-center md:order-2 md:text-left">
                   <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
                     Рилсы
                   </h2>
@@ -153,7 +149,6 @@ export default function Home() {
                   title="бекстэйдж"
                   className="aspect-video w-full"
                   onLoad={handleVideoLoad}
-                  loading="lazy"
                 ></iframe>
               </AnimatedSection>
               

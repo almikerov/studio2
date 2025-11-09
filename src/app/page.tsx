@@ -24,6 +24,29 @@ const AnimatedSection = ({ children, className }: { children: React.ReactNode, c
   );
 };
 
+const LazyVimeo = ({ src, title, className }: { src: string; title: string; className: string }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  return (
+    <div ref={ref} className={cn("aspect-video w-full", className)}>
+      {inView && (
+        <iframe
+          src={src}
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          title={title}
+          className="w-full h-full"
+        />
+      )}
+    </div>
+  );
+};
+
+
 const videoSources = [
   "https://player.vimeo.com/video/1134947669?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1",
   "https://player.vimeo.com/video/1134948817?badge=0&autopause=0&player_id=0&app_id=58479&controls=1&autoplay=1&muted=1",
@@ -51,14 +74,10 @@ export default function Home() {
         <section id="videos" className="bg-black pb-20 md:pb-24 lg:pb-32">
           <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-4">
             <div className="w-full max-w-5xl">
-              <iframe
+              <LazyVimeo
                 src={videoSources[0]}
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
                 title="РИЛЛС_БМВ"
                 className="aspect-video w-full"
-                loading="lazy"
               />
             </div>
 
@@ -69,47 +88,35 @@ export default function Home() {
             </AnimatedSection>
             
             <div className="w-full max-w-5xl">
-              <iframe
+              <LazyVimeo
                 src={videoSources[1]}
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
                 title="Презентация_формы_Арсенал"
                 className="aspect-video w-full"
-                loading="lazy"
               />
             </div>
             
             <div className="flex w-full max-w-5xl flex-col items-center justify-center gap-8 md:flex-row">
-                <div className="order-2 flex flex-col items-center gap-8 md:order-1 md:flex-row">
-                  <iframe
-                    src={videoSources[2]}
-                    frameBorder="0"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    title="Анастасия Арека Риллс"
-                    className="aspect-[9/16] w-full max-w-[300px] md:max-w-xs"
-                    loading="lazy"
-                  />
-                  <iframe
-                    src={videoSources[3]}
-                    frameBorder="0"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    title="how are you"
-                    className="aspect-[9/16] w-full max-w-[300px] md:max-w-xs"
-                    loading="lazy"
-                  />
-                </div>
-                <AnimatedSection className="order-1 flex flex-col text-center md:order-2 md:text-left">
+              <AnimatedSection className="order-1 flex flex-col text-center md:order-1 md:text-left">
                   <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
                     Рилсы
                   </h2>
                   <p className="mt-4 max-w-xs text-lg text-foreground/80">
                     Видео для продвижения вашего бренда в социальных сетях
                   </p>
-                </AnimatedSection>
+              </AnimatedSection>
+              <div className="order-2 flex flex-col items-center gap-8 md:order-2 md:flex-row">
+                  <LazyVimeo
+                    src={videoSources[2]}
+                    title="Анастасия Арека Риллс"
+                    className="aspect-[9/16] w-full max-w-[300px] md:max-w-xs"
+                  />
+                  <LazyVimeo
+                    src={videoSources[3]}
+                    title="how are you"
+                    className="aspect-[9/16] w-full max-w-[300px] md:max-w-xs"
+                  />
               </div>
+            </div>
 
 
             <AnimatedSection className="flex flex-col text-center pt-12">
@@ -119,14 +126,10 @@ export default function Home() {
             </AnimatedSection>
 
             <div className="w-full max-w-5xl">
-              <iframe 
+              <LazyVimeo
                 src={videoSources[4]}
-                frameBorder="0" 
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                referrerPolicy="strict-origin-when-cross-origin" 
                 title="бекстэйдж"
                 className="aspect-video w-full"
-                loading="lazy"
               />
             </div>
             

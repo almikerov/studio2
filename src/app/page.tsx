@@ -2,7 +2,7 @@
 
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Progress } from '@/components/ui/progress';
 
 const AnimatedSection = ({ children, className }: { children: React.ReactNode, className?: string }) => {
@@ -26,7 +26,7 @@ const AnimatedSection = ({ children, className }: { children: React.ReactNode, c
 };
 
 const LoadingScreen = ({ progress }: { progress: number }) => (
-  <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black">
+  <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black transition-opacity duration-500">
     <div className="text-center">
       <h1 className="text-2xl font-bold text-primary mb-4">Загрузка...</h1>
       <Progress value={progress} className="w-64" />
@@ -35,29 +35,33 @@ const LoadingScreen = ({ progress }: { progress: number }) => (
 );
 
 export default function Home() {
-  const totalVideos = 5;
-  const [loadedVideos, setLoadedVideos] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [loadingComplete, setLoadingComplete] = useState(false);
 
-  const handleVideoLoad = useCallback(() => {
-    setLoadedVideos(prev => prev + 1);
-  }, []);
-
-  const progress = totalVideos > 0 ? (loadedVideos / totalVideos) * 100 : 100;
-
   useEffect(() => {
-    if (loadedVideos === totalVideos) {
-      // Use a timeout to avoid a jarring transition
-      setTimeout(() => {
-        setLoadingComplete(true);
-      }, 500);
-    }
-  }, [loadedVideos, totalVideos]);
+    // This simulates a loading process. Since tracking iframe load is unreliable,
+    // we use a timer to provide a smooth loading experience.
+    const timer = setInterval(() => {
+      setProgress(prevProgress => {
+        if (prevProgress >= 100) {
+          clearInterval(timer);
+          // A short delay before hiding the loading screen
+          setTimeout(() => {
+            setLoadingComplete(true);
+          }, 500);
+          return 100;
+        }
+        return prevProgress + 20;
+      });
+    }, 400); // Adjust interval for desired speed
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
       {!loadingComplete && <LoadingScreen progress={progress} />}
-      <div className="flex min-h-screen flex-col bg-black">
+      <div className={cn("flex min-h-screen flex-col bg-black transition-opacity duration-1000", loadingComplete ? "opacity-100" : "opacity-0")}>
         <main className="flex-1">
           <section
             id="hero"
@@ -81,7 +85,6 @@ export default function Home() {
                   referrerPolicy="strict-origin-when-cross-origin"
                   title="РИЛЛС_БМВ"
                   className="aspect-video w-full"
-                  onLoad={handleVideoLoad}
                 />
               </div>
 
@@ -99,7 +102,6 @@ export default function Home() {
                   referrerPolicy="strict-origin-when-cross-origin"
                   title="Презентация_формы_Арсенал"
                   className="aspect-video w-full"
-                  onLoad={handleVideoLoad}
                 />
               </div>
               
@@ -112,7 +114,6 @@ export default function Home() {
                     referrerPolicy="strict-origin-when-cross-origin"
                     title="Анастасия Арека Риллс"
                     className="aspect-[9/16] w-full max-w-[300px] md:max-w-xs"
-                    onLoad={handleVideoLoad}
                   />
                   <iframe
                     src="https://player.vimeo.com/video/1134950469?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
@@ -121,7 +122,6 @@ export default function Home() {
                     referrerPolicy="strict-origin-when-cross-origin"
                     title="how are you"
                     className="aspect-[9/16] w-full max-w-[300px] md:max-w-xs"
-                    onLoad={handleVideoLoad}
                   />
                 </div>
                 <AnimatedSection className="order-1 flex flex-col text-center md:order-2 md:text-left">
@@ -149,7 +149,6 @@ export default function Home() {
                   referrerPolicy="strict-origin-when-cross-origin" 
                   title="бекстэйдж"
                   className="aspect-video w-full"
-                  onLoad={handleVideoLoad}
                 />
               </div>
               

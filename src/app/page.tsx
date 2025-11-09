@@ -47,16 +47,17 @@ export default function Home() {
 
   useEffect(() => {
     if (loadedVideos === totalVideos) {
+      // Use a timeout to avoid a jarring transition
       setTimeout(() => {
         setLoadingComplete(true);
-      }, 500); // Short delay for smoother transition
+      }, 500);
     }
   }, [loadedVideos, totalVideos]);
 
   return (
     <>
       {!loadingComplete && <LoadingScreen progress={progress} />}
-      <div className={cn("flex min-h-screen flex-col bg-black transition-opacity duration-1000", loadingComplete ? "opacity-100" : "opacity-0")}>
+      <div className="flex min-h-screen flex-col bg-black">
         <main className="flex-1">
           <section
             id="hero"
@@ -103,7 +104,7 @@ export default function Home() {
               </div>
               
               <div className="flex w-full max-w-5xl flex-col items-center justify-center gap-8 md:flex-row">
-                <div className="order-2 flex flex-col items-center gap-8 md:order-1 md:flex-row">
+                 <div className="order-2 flex flex-col items-center gap-8 md:order-1 md:flex-row">
                   <iframe
                     src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
                     frameBorder="0"

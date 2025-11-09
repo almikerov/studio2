@@ -72,7 +72,7 @@ export default function Home() {
 
           <section id="videos" className="bg-black pb-20 md:pb-24 lg:pb-32">
             <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-4">
-             <AnimatedSection className="w-full max-w-5xl">
+              <div className="w-full max-w-5xl">
                 <iframe
                   src="https://player.vimeo.com/video/1134947669?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1"
                   frameBorder="0"
@@ -82,7 +82,7 @@ export default function Home() {
                   className="aspect-video w-full"
                   onLoad={handleVideoLoad}
                 />
-              </AnimatedSection>
+              </div>
 
               <AnimatedSection className="flex flex-col text-center">
                 <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
@@ -90,7 +90,7 @@ export default function Home() {
                 </h2>
               </AnimatedSection>
               
-              <AnimatedSection className="w-full max-w-5xl">
+              <div className="w-full max-w-5xl">
                 <iframe
                   src="https://player.vimeo.com/video/1134948817?badge=0&autopause=0&player_id=0&app_id=58479&controls=1&autoplay=1&muted=1"
                   frameBorder="0"
@@ -100,10 +100,10 @@ export default function Home() {
                   className="aspect-video w-full"
                   onLoad={handleVideoLoad}
                 />
-              </AnimatedSection>
+              </div>
               
               <div className="flex w-full max-w-5xl flex-col items-center justify-center gap-8 md:flex-row">
-                <AnimatedSection className="order-2 flex flex-col items-center gap-8 md:order-1 md:flex-row">
+                <div className="order-2 flex flex-col items-center gap-8 md:order-1 md:flex-row">
                   <iframe
                     src="https://player.vimeo.com/video/1134949655?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=1"
                     frameBorder="0"
@@ -122,7 +122,7 @@ export default function Home() {
                     className="aspect-[9/16] w-full max-w-[300px] md:max-w-xs"
                     onLoad={handleVideoLoad}
                   />
-                </AnimatedSection>
+                </div>
                 <AnimatedSection className="order-1 flex flex-col text-center md:order-2 md:text-left">
                   <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
                     Рилсы
@@ -140,7 +140,7 @@ export default function Home() {
                 </h2>
               </AnimatedSection>
 
-              <AnimatedSection className="w-full max-w-5xl">
+              <div className="w-full max-w-5xl">
                 <iframe 
                   src="https://player.vimeo.com/video/1134956178?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1" 
                   frameBorder="0" 
@@ -150,7 +150,7 @@ export default function Home() {
                   className="aspect-video w-full"
                   onLoad={handleVideoLoad}
                 />
-              </AnimatedSection>
+              </div>
               
               <AnimatedSection className="w-full max-w-5xl text-center pt-12">
                 <h2 className="font-headline text-5xl font-bold tracking-tighter text-primary">
